@@ -21,3 +21,44 @@ body {
   align-items: center;
 }
 
+.emoji {
+  transition: 0.3s;
+}
+
+.controls {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  width: 300px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.color {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#rotate-btn{
+  padding: 10px 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgb(25, 121, 172);
+  color: white;
+  font-size: 15px;
+  margin-top: 10px;
+}
