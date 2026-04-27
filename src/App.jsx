@@ -1,8 +1,9 @@
 import { useState } from "react"; 
 import "./App.css";
-import EmojiButtons from "./components/Emojibutton";
-import ColorButtons from "./components/colorbutton";
-function Home() {
+import EmojiButtons from "./components/EmojiBtns";
+import ColorButtons from "./components/ColorBtns";
+
+function App() {
   const [emoji, setEmoji] = useState("😊");
   const [size, setSize] = useState(100);
   const [angle, setAngle] = useState(0);
@@ -10,6 +11,7 @@ function Home() {
 
   return (
     <div className="home-con">
+
       <div className="emoji-box" style={{ backgroundColor: color }}>
         <span style={{ fontSize: `${size}px`, transform: `rotate(${angle}deg)` }}>
           {emoji}
@@ -60,6 +62,7 @@ function Home() {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }
