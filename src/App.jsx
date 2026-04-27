@@ -1,68 +1,67 @@
-import { useState } from "react";
+import { useState } from "react"; 
 import "./App.css";
-
-function App() {
-  const [emoji, setEmoji] = useState("🤷‍♂️");
-  const [bgColor, setBgColor] = useState("#5fd3d0");
+import EmojiButtons from "./components/Emojibutton";
+import ColorButtons from "./components/colorbutton";
+function Home() {
+  const [emoji, setEmoji] = useState("😊");
   const [size, setSize] = useState(100);
-  const [rotate, setRotate] = useState(0);
-
-  const emojis = ["🥰", "😎", "😍", "😉","🫅"];
-  const colors = ["#ff6b6b", "#f7a440", "#f7e733", "#4cd964", "#5fd3d0"];
+  const [angle, setAngle] = useState(0);
+  const [color, setColor] = useState("#ffffff");
 
   return (
-    
-    <div className="container">
-      <div className="preview" style={{ backgroundColor: bgColor }}>
-        <div
-          className="emoji"
-          style={{
-            fontSize: `${size}px`,
-            transform: `rotate(${rotate}deg)`
-          }}
-        >
+    <div className="home-con">
+      <div className="emoji-box" style={{ backgroundColor: color }}>
+        <span style={{ fontSize: `${size}px`, transform: `rotate(${angle}deg)` }}>
           {emoji}
-        </div>
+        </span>
       </div>
 
-      <div className="controls">
+      <div className="controls-box">
         <h2>Customize Your Emoji</h2>
+        <p>Use the buttons below to customize your emoji</p>
 
-        <p>Emoji Picker</p>
-        <div className="row">
-          {emojis.map((e, i) => (
-            <button key={i} onClick={() => setEmoji(e)}>
-              {e}
-            </button>
-          ))}
+
+        <div className="control-section">
+          <h3>Emoji Picker</h3>
+          <div className="emoji-grid">
+            <EmojiButtons emoji="🥰" setEmoji={setEmoji} />
+            <EmojiButtons emoji="🤩" setEmoji={setEmoji} />
+            <EmojiButtons emoji="😍 " setEmoji={setEmoji} />
+            <EmojiButtons emoji="😊" setEmoji={setEmoji} />
+          
+          </div>
         </div>
-
-        <p>Color Picker</p>
-        <div className="row">
-          {colors.map((c, i) => (
-            <span
-              key={i}
-              className="color"
-              style={{ backgroundColor: c }}
-              onClick={() => setBgColor(c)}
-            ></span>
-          ))}
+        <div className="control-section">
+          <h3>Color Picker</h3>
+          <div className="color-grid">
+            <ColorButtons color="#FF6666" setColor={setColor} />
+            <ColorButtons color="#FFB266" setColor={setColor} />
+            <ColorButtons color="#FFFF66" setColor={setColor} />
+            <ColorButtons color="#66FF66" setColor={setColor} />
+            <ColorButtons color="#66FFFF" setColor={setColor} />
+           
+          </div>
         </div>
-
-        <p>Size</p>
-        <input
-          type="range"
-          min="50"
-          max="200"
-          value={size}
-          onChange={(e) => setSize(e.target.value)}
-        />
-
-        <p>Rotate Emoji</p>
-        <button id='rotate-btn' onClick={() => setRotate(rotate + 45)}>Rotate</button>
+        <div className="control-section">
+          <h3>Size</h3>
+          <input
+            type="range"
+            min="20"
+            max="150"
+            value={size}
+            onChange={(e) => setSize(e.target.value)}
+            className="slider"
+          />
+        </div>
+        <div className="control-section">
+          <h3>Rotate Emoji</h3>
+          <div className="rotate-btn" onClick={() => setAngle(angle + 45)}>
+            Rotate
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-export default App;
+export default App
