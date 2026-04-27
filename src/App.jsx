@@ -2,15 +2,16 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [emoji, setEmoji] = useState("😍");
+  const [emoji, setEmoji] = useState("🤷‍♂️");
   const [bgColor, setBgColor] = useState("#5fd3d0");
   const [size, setSize] = useState(100);
   const [rotate, setRotate] = useState(0);
 
-  const emojis = ["🥰", "😎", "😍", "😉"];
+  const emojis = ["🥰", "😎", "😍", "😉","🫅"];
   const colors = ["#ff6b6b", "#f7a440", "#f7e733", "#4cd964", "#5fd3d0"];
 
   return (
+    
     <div className="container">
       <div className="preview" style={{ backgroundColor: bgColor }}>
         <div
